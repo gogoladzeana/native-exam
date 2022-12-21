@@ -1,7 +1,7 @@
 const initialState = {
     allProducts:[],
     cartProducts:[],
-    fuck:'fuck'
+    product:'product'
 }
 
 

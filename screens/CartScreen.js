@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { Button, StyleSheet, Text, View } from "react-native";
+import {StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 
 const CartScreen = () => {
@@ -16,8 +15,8 @@ const CartScreen = () => {
   
 
     return <View style={styles.cartContainer}>
-        <Text style={styles.cartTitle}>cart</Text>
-        <Text>სრული ღირებულება:{calculateSum()} </Text>
+        
+        <Text style={styles.pay} >სრული ღირებულება:{calculateSum()} </Text>
         <View>
             {products.map((el, index)=><SingleCartProduct product={el} index={index} key={index}/>)}
         </View>
@@ -38,12 +37,13 @@ const deleteProductFromCart = () => {
         
 <Text>{product.title}</Text>
 <Text>price: {product.price}</Text>
-<Button
-onPress={() => deleteProductFromCart()}
-title="წაშლა"
-color="#841584"
-backgroundColor="red"
-/>
+
+<TouchableOpacity  onPress={() => deleteProductFromCart()} >
+            <View style={styles.Button}>
+                <Text style={styles.delete} >წაშლა</Text>
+            </View>
+        </TouchableOpacity>
+
     </View>
 }
 
@@ -55,11 +55,6 @@ const styles = StyleSheet.create({
         paddingTop:100,
         backgroundColor:'#E1BEE7'
     },
-    cartTitle:{
-        textAlign:'left',
-        color:'red',
-        fontSize:20
-    },
     singleCarContainer:{
         width:'100%',
         justifyContent:'space-between',
@@ -68,5 +63,28 @@ const styles = StyleSheet.create({
         marginBottom:10,
         padding:5
         
+    },
+    Button: {
+        backgroundColor:'#CE93D8',
+        alignItems:'center',
+        justifyContent:'center',
+        borderRadius:35,
+        marginHorizontal:20,
+        marginVertical:10,
+        borderWidth:1,
+        borderColor:'white',
+        height:55
+    },
+    delete: {
+        fontSize:20,
+        fontWeight:'600',
+        letterSpacing: 0.5,
+        color:'white',
+    },
+    pay: {
+        fontWeight:'600',
+        fontSize:25,
+        marginBottom:25
     }
+
 })

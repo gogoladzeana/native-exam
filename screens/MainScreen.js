@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Button, Image, ScrollView, StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { Image, ScrollView, StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { useDispatch } from "react-redux";
 
 const MainScreen = () =>{
